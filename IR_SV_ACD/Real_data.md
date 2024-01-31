@@ -1,0 +1,1 @@
+To apply this to real data, disregard lines 22-54 in the R files. Instead, replace the data in the 'data_list' at line 57 with the imported real data. The remaining lines, starting from line 68, can be utilized with minimal adjustments to accommodate the real data to obtain the fits and forecasts.
