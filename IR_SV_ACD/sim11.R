@@ -66,7 +66,7 @@ data_list <- list(
 )
 
 options(mc.cores=4) # choose the number of cores you want to run the model on 
-fit=model$sample(data=data_list,seed=1,chains = 4,iter_sampling = 1000,parallel_chains = 4,threads_per_chain = 12,iter_warmup=1000,thin=4)#,adapt_delta = 0.99)
+fit=model$sample(data=data_list,seed=1,chains = 4,iter_sampling = 1000,parallel_chains = 4,threads_per_chain = 12,iter_warmup=1000,thin=4)
 par_summary=fit$summary(variables = c("mu", "phi","sigmasq","omega","durpar","delta"))
 summary=cbind(par_summary,fit$summary(c("mu", "phi","sigmasq","omega","durpar","delta"), quantile, .args = list(probs = c(0.025, .975)))[,c(2,3)])
 summary
