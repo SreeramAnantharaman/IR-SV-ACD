@@ -1,4 +1,4 @@
-# Hierarchical Modeling of Irregularly Spaced Financial Returns
+# Hierarchical modeling of irregularly spaced financial returns
 
 ## Sreeram Anantharaman, Nalini Ravishanker and Sumanta Basu
 
