@@ -198,11 +198,14 @@ for(id in 1:nSamp){
   phi <- phi_fit[id]
   N=5000
   T=20
-  psi_pp <- psifits[id,c((N):(N+1-q))]
+  psi_pp <- psifits[id,]
+  g_val=g[1:5000]
   
   for (t in 1:mxpq){
-    psi_fore[t] <- omega+alpha[1:p]%*%g[(5000+t-1):(5000+t-p)]+beta[1:q]%*%psi_pp
+    psi_fore[t] <- omega+alpha[1:p]%*%g_val[(5000+t-1):(5000+t-p)]+beta[1:q]%*%psi_pp[(5000+t-1):(5000+t-q)]
     gppSamples_fore[t] <- rgamma(n=1, shape=delta, scale=psi_fore[t]/delta)
+    g_val[5000+t]=gppSamples_fore[t]
+    psi_pp[5000+t]=psi_fore[t]
   }
   for (t in (mxpq+1):(T)){
     psi_fore[t] <- omega+alpha[1:p]%*%gppSamples_fore[(t-1):(t-p)]+beta[1:q]%*%psi_fore[(t-1):(t-q)]
